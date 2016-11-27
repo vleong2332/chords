@@ -3,7 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
-    "react-scripts": "0.7.0"
+    "autoprefixer-stylus": "^0.11.0",
+    "concurrently": "^3.1.0",
+    "react-scripts": "0.7.0",
+    "stylus": "^0.54.5"
   },
   "dependencies": {
     "react": "^15.4.1",
@@ -13,6 +16,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "styles": "stylus -u autoprefixer-stylus ./src/stylesheets/style.styl -o ./src/stylesheets/style.css",
+    "styles:watch": "stylus -u autoprefixer-stylus -w ./src/stylesheets/style.styl -o ./src/stylesheets/style.css",
+    "push": "git add -A && git commit && git push"
   }
 }
