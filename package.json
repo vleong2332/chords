@@ -19,6 +19,7 @@
     "eject": "react-scripts eject",
     "styles": "stylus -u autoprefixer-stylus ./src/stylesheets/style.styl -o ./src/stylesheets/style.css",
     "styles:watch": "stylus -u autoprefixer-stylus -w ./src/stylesheets/style.styl -o ./src/stylesheets/style.css",
+    "watch": "concurrently --names \"webpack, stylus\" --prefix name \"npm run start\" \"npm run styles:watch\"",
     "push": "git add -A && git commit && git push"
   }
 }

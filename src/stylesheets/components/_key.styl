@@ -1,0 +1,75 @@
+.ch-octave
+  .ch-row
+    &.white
+      .ch-key
+        flex 0 0 white-key-width
+        height white-key-length
+        background-color ivory
+        color black
+        border-color #AAA
+        border-radius white-key-border-radius
+        box-shadow 0px 2px 3px -2px #AAA
+        display flex
+        justify-content center
+        &.pressed
+          height white-key-length * 0.975
+          box-shadow none
+          background-image linear-gradient(ivory, #EFEFE0)
+    &.black
+      .ch-key
+        position absolute
+        width black-key-width
+        height black-key-length
+        background-color black
+        color white
+        border-width 0
+        transform translateX(-50%)
+        border-radius black-key-border-radius
+        display flex
+        justify-content center
+      .ch-key::before
+        content ""
+        display block
+        height 95%
+        width 75%
+        background-color #333
+        background-image linear-gradient(black, #555)
+        border-radius 0 0 4px 4px
+        box-sizing border-box
+      .ch-key.pressed::before
+        height 97%
+        width 77%
+        background-image linear-gradient(#333, #111)
+
+.ch-key
+  border-width 1px
+  border-style solid
+  border-top-color black
+  height 100%
+  box-sizing border-box
+  transition all 0.15s ease
+  &.key01
+    left white-key-width * 1
+  &.key03
+    left white-key-width * 2
+  &.key06
+    left white-key-width * 4
+  &.key08
+    left white-key-width * 5
+  &.key10
+    left white-key-width * 6
+  &::after
+    content ""
+    display block
+    position absolute
+    bottom 8%
+    width 25px
+    height 25px
+    border-radius 50%
+    border 2px solid rgba(255, 0, 0, 0.45)
+    background-image linear-gradient(rgba(255, 0, 0, 0.45), rgba(255, 0, 0, 0.1))
+    opacity 0
+    transition all 0.15s ease
+  &.pressed::after
+    opacity 1
+    bottom 6%
