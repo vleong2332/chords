@@ -2,38 +2,38 @@ import React from 'react';
 
 
 class RootSelector extends React.Component {
-  getButtonArrangement() {
-    return [
-      ['C'],
-      ['C#', 'Db'],
-      ['D'],
-      ['D#', 'Eb'],
-      ['E'],
-      ['F'],
-      ['F#', 'Gb'],
-      ['G'],
-      ['G#', 'Ab'],
-      ['A'],
-      ['A#', 'Bb'],
-      ['B'],
-    ];
+  constructor() {
+    super();
+    this.state = {
+      buttonArrangements: [
+        ['C'],
+        ['C#', 'Db'],
+        ['D'],
+        ['D#', 'Eb'],
+        ['E'],
+        ['F'],
+        ['F#', 'Gb'],
+        ['G'],
+        ['G#', 'Ab'],
+        ['A'],
+        ['A#', 'Bb'],
+        ['B'],
+      ]
+    };
   }
 
   renderButtons() {
-    const buttonArrangements = this.getButtonArrangement();
-    return buttonArrangements.map((notes, index) => (
+    return this.state.buttonArrangements.map((notes, index) => (
       <div key={index} className="button-slot">
-        {
-          notes.map(note => {
-            const classNames = [
-              'button',
-              index === this.props.selectedRoot ? 'selected' : null
-            ];
-            return (
-              <div key={note} className={classNames.join(' ').trim()} onClick={() => this.handleClick(index)}>{note}</div>
-            )
-          })
-        }
+        {notes.map(note => {
+          const classNames = [
+            'button',
+            index === this.props.selectedRoot ? 'selected' : null
+          ];
+          return (
+            <div key={note} className={classNames.join(' ').trim()} onClick={() => this.handleClick(index)}>{note}</div>
+          )
+        })}
       </div>
     ));
   }
@@ -55,8 +55,8 @@ class RootSelector extends React.Component {
 }
 
 RootSelector.propTypes = {
-  selectedRoot: React.PropTypes.oneOf([...Array(12).keys()]).isRequired,
   selectRoot: React.PropTypes.func.isRequired,
+  selectedRoot: React.PropTypes.number,
 };
 
 export default RootSelector;
