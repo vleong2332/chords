@@ -15,8 +15,4 @@ class Keyboard extends React.Component {
   }
 }
 
-Keyboard.propTypes = {
-	keys: React.PropTypes.array.isRequired,
-}
-
 export default Keyboard;
