@@ -45,7 +45,7 @@ class RootSelector extends React.Component {
   render() {
     return(
       <div className="ch-root-selector">
-        <h2>Root Selector</h2>
+        <h2 className="title">Root</h2>
         <div className="button-wrapper">
           {this.renderButtons()}
         </div>

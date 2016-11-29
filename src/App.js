@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 
+import Header from './components/Header';
 import Keyboard from './components/Keyboard';
 import ControlPanel from './components/ControlPanel';
 
@@ -26,7 +27,7 @@ class App extends Component {
 
   pressChord(chord, selectedRoot) {
     if (selectedRoot === null || selectedRoot < 0 || selectedRoot > 11 || !chord) {
-      console.error('pressChord() cannot determine selected root and chord', selectedRoot, chord);
+      console.log('pressChord() cannot determine selected root and chord', selectedRoot, chord);
       return;
     }
     const transposedChord = chord.map(keyId => (keyId + selectedRoot) % 12);
@@ -50,6 +51,7 @@ class App extends Component {
   render() {
     return (
       <div className="chords-app">
+        <Header title="Piano Chords" />
         <Keyboard keys={this.state.keys} />
         <ControlPanel
           keys={this.state.keys}
