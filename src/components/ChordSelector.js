@@ -50,7 +50,7 @@ class ChordSelector extends React.Component {
   renderButtons() {
     return Object.keys(this.state.chords).map((key, index) => {
       const chord = this.state.chords[key];
-      console.log(chord.display, chord.keys, this.props.selectedChord, this.arraysAreEqual(chord.keys, this.props.selectedChord));
+      // console.log(chord.display, chord.keys, this.props.selectedChord, this.arraysAreEqual(chord.keys, this.props.selectedChord));
       const classNames = [
         'button',
         this.arraysAreEqual(chord.keys, this.props.selectedChord) ? 'selected' : null
