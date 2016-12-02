@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import Header from './components/Header';
 import Keyboard from './components/Keyboard';
 import ControlPanel from './components/ControlPanel';
-import Sound from './components/Sound';
+import KeyPress from './components/KeyPress';
 
 import midC from './sound/040.wav';
 import midCSharp from './sound/041.wav';
@@ -20,7 +20,7 @@ import midB from './sound/051.wav';
 
 
 class App extends Component {
-    constructor() {
+  constructor() {
     super();
     this.state = {
       keys: [
@@ -54,7 +54,7 @@ class App extends Component {
     keys.forEach((key) => {
       key.pressed = keyIds.indexOf(key.id) !== -1;
     });
-    this.setState({keys}, this.sound.playChord.bind(this.sound));
+    this.setState({keys});
   }
 
   depressAllKeys() {
@@ -64,15 +64,19 @@ class App extends Component {
   }
 
   render() {
+    const { keys } = this.state;
+    const pressedKeys = keys.filter((k) => k.pressed);
     return (
       <div className="chords-app">
         <Header title="Piano Chords" />
-        <Keyboard keys={this.state.keys} />
+        <Keyboard keys={keys} />
         <ControlPanel
-          keys={this.state.keys}
+          keys={keys}
           pressChord={this.pressChord.bind(this)}
         />
-        <Sound keys={this.state.keys} ref={el => this.sound = el} />
+        {pressedKeys.map((key, i) => (
+          <KeyPress key={i} pianoKey={key} />
+        ))}
       </div>
     );
   }
