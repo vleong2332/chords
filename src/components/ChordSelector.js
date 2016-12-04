@@ -18,7 +18,7 @@ class ChordSelector extends React.Component {
         six: {display: '6', keys: [0, 4, 7, 9]},
         minSix: {display: 'Min6', keys: [0, 3, 7, 9]},
         nine: {display: '9', keys: [0, 2, 4, 7, 10]},
-        minNine: {display: 'Min9', keys: [0, 2, 4, 7, 10]},
+        minNine: {display: 'Min9', keys: [0, 2, 3, 7, 10]},
         majNine: {display: 'Maj9', keys: [0, 2, 4, 7, 11]},
         minMajNine: {display: 'MinMaj9', keys: [0, 2, 3, 7, 11]},
         elev: {display: '11', keys: [0, 2, 4, 5, 7, 10]},
